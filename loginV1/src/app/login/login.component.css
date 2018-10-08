@@ -1,0 +1,15 @@
+.card-img-top {
+    width: 25%;
+    height: 25%;
+    margin: auto;
+    display: block;
+}
+.card-header {
+    color:#f7f7f7;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.error {
+    color:#b00808;
+}
