@@ -17,7 +17,7 @@ export class CustommHttpService {
       const httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token')
+          'Authorization': localStorage.getItem('token');
         })
       }
       return httpOptions;
@@ -27,7 +27,7 @@ export class CustommHttpService {
   }
   //POST METHOD
   post(url: string, data: any): Observable<any> {
-    const getHeaders = this.includeHeader();
+    const getHeaders = {}; //this.includeHeader();
     return this.http.post(`${baseUrl}${url}`, data, getHeaders).pipe(map((response: any) => {
       if (response.status === 403) {
         window.alert('Unauthorized');
