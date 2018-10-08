@@ -51,7 +51,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "loginV1:build"
+            "browserTarget": "loginV1:build",
+            "port":1355
           },
           "configurations": {
             "production": {
