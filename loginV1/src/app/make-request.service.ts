@@ -12,7 +12,7 @@ export class MakeRequestService {
   constructor(private http: HttpClient) { }
   //POST
   post(url: string, data: any): Observable<any> {
-    return this.http.post(`${config['BASE_URL']}${url}`, {}, data).pipe(map((response: any) => this.handleResponse(response)),
+    return this.http.post(`${config['BASE_URL']}${url}`, data ,{}).pipe(map((response: any) => this.handleResponse(response)),
       // if error occure try 2 time
       catchError(() => of(retry(2)))
     )
@@ -38,8 +38,10 @@ export class MakeRequestService {
   handleResponse(response) {
     if (response.status === 403) {
       return 'unauthorized';
-    } else {
+    } else if(response.status === 200){
       return response;
+    } else{
+      throw response;
     }
   }
 }
